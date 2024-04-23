@@ -1,0 +1,39 @@
+﻿@model List<Products>
+
+
+<table class="table">
+
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Products product in Model)
+		{
+			<tr>
+				<td>@product.Id</td>
+				<td>@product.Name</td>
+				<td>@product.Description</td>
+				<td>@product.Price</td>
+				<td>
+					<div>
+						<form asp-controller="Products" asp-action="Delete" method="post"> 
+							<input name="Id" type="hidden" value="@product.Id"/>
+							<button type="submit" class="btn btn-primary">Delete</button>
+						 </form>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+
+</table>
+
+
+
+
